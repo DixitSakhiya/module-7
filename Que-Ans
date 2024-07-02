@@ -1,0 +1,37 @@
+1.) What is Redux ?
+Ans.) Redux is a state management library commonly used with JavaScript applications, especially with React. It helps manage the state of an application in a predictable way. Here are the key concepts of Redux:
+
+    ->Store: Holds the state of the application. It can be created using the createStore function.
+
+    ->Actions: Plain JavaScript objects that describe what happened in the application. Actions must have a type property that indicates the type of action being performed.
+
+    ->Reducers: Pure functions that take the current state and an action, and return a new state. They are used to specify how the application's state changes in response to actions.
+
+    ->Middleware: Provides a third-party extension point between dispatching an action and the moment it reaches the reducer. Commonly used for logging, crash reporting, and handling asynchronous actions.
+
+ 2.) What is Redux Thunk used for ?    
+ Ans.) Redux Thunk is a middleware for Redux that allows you to write action creators that return a function instead of an action. This function can then be used to perform asynchronous operations, such as API calls, and dispatch actions when those operations are completed.
+
+      ->Action Creators Returning Functions: With Redux Thunk, action creators can return functions (thunks) instead of plain action objects. These functions receive the dispatch and getState methods as arguments, enabling them to dispatch actions and access the current state.
+
+      ->Asynchronous Actions: Thunks are particularly useful for handling asynchronous operations. You can initiate an asynchronous operation, such as an API call, and dispatch actions based on the results of that operation.
+
+3.) What is Pure Component? When to use Pure Component over Component? 
+Ans.) A Pure Component in React is a component that only re-renders when its props or state change. It is a way to optimize performance by preventing unnecessary renders. Pure Components achieve this by implementing a shallow comparison on the component's props and state in the shouldComponentUpdate lifecycle method.
+
+    *Component:
+
+      React's basic component that re-renders every time its parent re-renders, regardless of whether its props or state have changed. You can control the re-rendering behavior by manually implementing the shouldComponentUpdate method.
+
+    *Pure Component:
+
+      A higher-level component that automatically implements shouldComponentUpdate with a shallow prop and state comparison. Simplifies the process of optimizing performance by reducing unnecessary re-renders.
+
+4.) What is the second argument that can optionally be passed tosetState and what is its purpose?
+Ans.) The second argument that can optionally be passed to the setState method in React is a callback function. This callback function is executed once the setState operation is complete, meaning after the state has been updated and the component has re-rendered.
+
+   ->Accessing Updated State: Sometimes, you need to perform operations that depend on the updated     state.  Since setState is asynchronous, the callback ensures that you are working with the most recent state.
+
+   ->DOM Manipulations: If you need to perform any DOM manipulations or measurements that rely on the component's updated layout, the callback ensures the DOM is in its final state.
+
+   ->Side Effects: Any side effects that should occur after the state has changed, such as making an API call or updating a global store.
